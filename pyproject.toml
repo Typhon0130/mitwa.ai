@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "mitwa"
+version = "0.1.0"
+description = ""
+authors = ["Jacob Valdez <jacobfv@msn.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pydantic = "^1.10.7"
+openai = "^0.27.6"
+uvicorn = { version = "^0.22.0", extras = ["standard"] }
+langchain = { git = "https://github.com/JacobFV/langchain", branch = "save-for-mitwa" }
+typer = "^0.9.0"
+fastapi = "^0.95.1"
+sqlalchemy-utils = "^0.41.1"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

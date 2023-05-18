@@ -1,0 +1,15 @@
+- natural language interface
+- plugin spec
+
+- login
+- create account
+- forgot password
+
+- dashboard
+- my egos
+- conversation
+  - add or remove egos from conversation
+  - press start / pause to start / pause ais from conversing
+  - user is always a participant, but must interject to speak (or press pause and then submit for a single reply)
+- extract insights from conversation
+  - conflicts

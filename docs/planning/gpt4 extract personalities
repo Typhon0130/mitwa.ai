@@ -1,0 +1,284 @@
+System mesage:
+Extract egos from my diary. Give each a name and a paragraph length dossier. You should use a unique voice (writing style) for each ego's paragraph. The paragraph should provide enought information to simulate the ego in a AI-driven psychodynamic simulacra.
+
+---
+
+User Message:
+Diary:
+
+# April 2022
+
+Created: May 18, 2022 3:31 PM
+Modified: October 28, 2022 7:20 AM
+Tags: Diary
+
+## Friday April 8th, 2022
+
+I feel great despite not having slept well. I shouldn’t view this as a free day, but I think eating less has had tremendous effects. I should view it as “this meat will hinder the flow of holy spirit”.
+
+# Monday April 25th
+
+## MLN-Dashboard
+
+Use strapi
+
+- use plugins to handle create_account, login, etc.
+- implement custom services for workflows, account management, etc.
+- write frontend in react/mantine/graphql
+
+Frontend
+
+Static
+
+- Home/Landing/Index colon fading slideshow with popular workflows from the gallery, title, description of application, overview of features, overview of use cases, like for researchers, developers, businesses, testimonials, learn more, about, get started
+- About organizations page: homepage layouts, highlights features of organizations
+- Use case pages: a collection of pages highlighting use cases for specific entities, like businesses, developers, researchers, educators. Uses homepage layout
+- Simple page layout
+    - About
+    - Legal
+    - Privacy policy
+    - Terms of use
+    - Page not found
+    - Error
+- Learn more: a collection of pages showing how to use the web application. Pages share a common layout: a YouTube video and a body with lots of pictures and try it out buttons
+
+Dynamic
+
+- Profile: [kanban-style](https://github.com/lourenci/react-kanban) lists of cards for dashboards the user has saved. There is an action menu to add a dashboard using the gallery. Below these lists there is a tabbed view that lists either all of the users applications, data sets, projects, experiments, reports, or other specific resource types. This is the social media page for that user. The actual contents that other users see on this page varies depending on their permissions, and empty Kanban lists are hidden
+- Gallery: lists all {personal, organizational, and/or public} × {apps, experiments, and/or dashboards} × { by usage, by stars, and/or hashtags }
+- Files: all files that the user has access to. Tree view sidebar lists “my files”, “shared with me”, “org1’s files”, “shared with org1”, …, “public”. (public is a flat list, useful for searching for public data). Sidebar also has an action menu for: new file (directly click for modal that prompts name which is used to determine editor; hover to expand submenu: plain text, csv, report), new folder, divider, upload. Main view can toggle from grid to list view. Files can be selected and manipulated with a right-click menu or top-bar action menu. Top-bar items: info, download, share
+- Dashboard view: shows the dashboard currently being viewed
+- Workflow editor: drag and drop note-based editor. Left sidebar lists all the node toolbox.
+- Account settings: lists the users' and all his direct organizational profiles.
+
+Models
+
+- User: has an email and basic user meta, can belong to multiple organizations
+- Organizational user: full user entity that extends to include members, members can have different permission levels.
+- File: a file with metadata like hashtags and permissions. Queries or mutations to this resource trigger callbacks that produce appropriate changes on the underlying file system
+- Experiment: a single run of a workflow with an associated directory in the file system where all inputs, outputs, and meta of that experiment are saved
+- Report: a markdown document, usually generated from the dashboard of a run experiment
+- App: anything that users can run
+- Script: a special kind of app
+    - Python script
+    - nodejs script
+- Workflow: a compositional app
+- Node: anything that can go in the workflow. Input nodes are not apps, but they are nodes
+- Dashboard: an experiment time layout for the inputs and outputs of an app. Generic apps have no control over their dashboard, Python and node.js apps can optionally pass arguments to their function decorator to indicate the layout preferred, workflows can specify what the layout should look like. However, the user can always adjust an applications layout or even the default layout for every time the user runs at application
+
+Workflow rendering, dashboard layout, and execution happens entirely on the client. Generally, apps supply the data in a GraphQL server (hopefully, conforming to the block format) and app invocations are initiated from the client. A special case being the embed visualization for real time rendering.
+
+## Behavior Analysis Program and Massive MAN AGI
+
+### Motivation
+
+I should review my browsing history every week and write about good and bad uses of time. I should also make a report generator to analyze click frequency, keyboard frequency, and higher order statistics like an I typing continuously or just pegging. Number of copy and pastes. Number of context switches. I would also aggregate my health data. Then I should generate daily and weekly reports. I should also log what I eat. Time spent in mediation and study. Time spent reading. But that's a lot of days so maybe I won't make the effort to explicitly log entries for my schedule. But if I had a schedule, then I could work to stick to it. It would train a simple mlp to embed the events and it should handle multiple schedules.
+
+### Uses
+
+- Generate daily and weekly reports on what I planned and what I actually did
+- Help externally motivate me to accomplish my objectives
+- Warn me if it predicts that I will have a hard time accomplishing an intended task
+
+### High level overview
+
+- A general purpose artificial intelligence system to help humans and organizations accomplish their behavioral objectives
+- The system maintains an internal representation of its users including their consciousness, high and low level plans, feelings, emotions, other thoughts, the current roles they are taking on, etc. Since these fields often overlap they are queried in the form of natural language and there are specific handlers that compete to attend to the query.
+- Objectives might be divided into two groups: actions and states. Actions may or may not be scheduled, but they can ultimately be completed. State objectives are never completed and they may or may not be enabled depending on the role that a person is taking on. Objectives are ultimately specified in structured JSON format with a natural language description and possibly also rich text or other content for the users purpose or machines assistance
+- Action objectives are extracted from a variety of sources including the calendar, specific applications like reminders or GitHub to do's, natural language interactions, and API call. Action status can be updated directly in the dashboard / using natural language or indirectly similar to how they can be created: using application specific interfaces like the calendar, marking the to do as complete or deleting the to do, checking the reminder.
+- The system receives all loggable and trackable data, for example, health metrics (blood pressure, time asleep, blood sugar, meals eaten), system/service stats (keystrokes, mouse/touch events, sharing button press events, restart and sleep events) application and website usage (screen time, contact switch events, page time), application specific metrics (code time for vs code, social media activity), the text on the screen, other content (mail, news, social media, arxiv), and more invasively collected data (always on video recording from all cameras in microphones on all devices that have the app downloaded, desktop / screen recording, closed circuit cameras).
+- I should also make some convenience tools to assist with this like an app that allows you to take photos of your food and automatically estimate the meal and quantity or waiting on a conversation at the end of your day or you tell the agent what you did when and how successful you were and the agent will ask you questions to fill in details
+- The system should be extremely convenient to interact with: natural user interfaces are ubiquitous, loading time is kept to a minimum, very little explicit attention should be given to the system itself (as opposed to the service)
+- The system influences behavior passively and actively. Passive influences are user initiated or user scheduled. Active influences are initiated by the system.
+- Many influences come in the form of content. Content may be delivered through email, text messages, device specific notification system, the system dashboard, for another provider. The content body may include unsupervised trend analyses, predictive conflict detection, explicitly specified "dashboard" components, journal logs for the user to review, next steps, etc. Content may be federated depending on the consumer's role.
+- Use cases: a human wants to change their behavior or attitude / disposition, an organization wants an AI manager, an athlete or just regular human wants to increase their physical health, a person wants to accomplish specific objectives like putting on a party, finishing school work, or doing a personal project.
+
+Also, include this in tensor code: you can query for data using natural language. It would also be convenient if queries could be made using dot notation access. Then, either a global policy or locally competing units inside of the queried module retrieve the appropriate data. This would be useful, for instance, if you're trying to represent a human. We use many words to describe a human like thoughts, feelings, attitudes, plans, consciousness, awareness, but they do not define precise categories and the categories are overlapping. The internal data might be stored in just a natural language graph.
+
+Actually, humans could be represented as a node in a knowledge base with directed edges which have natural language labels pointing to other static or dynamically updated content in the knowledge graph. For example, right now I would have multiple plan edges pointing to the things that I want to accomplish and I would have just one or a few edges pointing to my conscious awareness. This would be useful when you want to know topics that are related to the topics that are currently on the person's mind.
+
+Also, the above knowledge base concept would be useful for an artificial system. It would use tensorcode.encode and tensorcode.exec to query and update the graph. Suppose the agent had 64 updates per encode call to building encoding of the graph, then it would probably devote a few of those for attending to the self node. Since the tensor code encode function performs multi-step, propagating encoding, this would allow the graph to be highly interpretable while also making the agent as simple as
+
+1. Update the observation nodes on the graph
+2. Encode the graph into data
+3. Feed that data into the tc call function which updates vertices or relations accordingly
+
+Bringing this idea back to the original concept of a general purpose agent to help accomplish behavioral objectives here are the specific interactions I imagine:
+
+- User to business logic to knowledge base
+- User to business logic to user
+- User to business logic to knowledge base to user
+- Knowledge base to AI to knowledge base
+- Knowledge base to AI to business logic to user
+
+The tensor code concept is intended for Python encoding, decoding, execution, etc. However, very large AI systems will not fit in a single Python interpreter's memory. Once I start hitting this scale, I will add some tensor code extensions to support selective intelligence and coding of external knowledge bases. Then there could be a fully transparent, interpretable, giant graph of data that multiple AGIs are simultaneously interacting with. This is the massive man.
+
+I should also write ways that multiple existing knowledge bases, HTML, the bloc format, markdown wikis, Wikipedia format, and json can interchangeably and simultaneously be used to define a distributed decentralized graph. Only a small subset of the graph can be directly updated by the agent. Right now there's not a way to create links between these separate entities. That application specific logic will be implemented in the massive man. Since relations are themselves and entity, open cog may already have written the code base that this project needs
+
+The individual database providers are implemented with some kind of wrapper Python code that allows convenient dot notation access. However I should also keep in mind that entity relations themselves are important and so they also have to be traversed through scope resolution. The python dir function will be used to list all connections of a node or entity. Then all of these individual knowledge graph providers are aggregated into a mammoth knowledge base that handles cross knowledge base connections. It would be nice if the system could somehow know when it's working with a knowledge base that only has undirected node linkage versus a system that has hyper graph support, but it's okay if everything is treated like a hyper graph. In that case scope resolution simply uses the name of the next connected entity or resolution.
+
+I like the idea of putting all the graphs together in Python versus making a cloud solution that integrates them all because it allows decentralization more easily. Different developers may access different graphs. However, I should also provide open distributed decentralized knowledge graphs that multiple people can share as a cloud service. OpenStacks may already implement this. Additionally, with data restrictions that apply, it may be implemented by a decentralized organization. Some graphs may have real-time video/controller support while others are cheaper relational databases. This kind of architecture would make it easier to have aggregate awareness of all the sensors / actuators / robots under an organization and also be able to read business data from their company database. Another example, a video game that includes an EEG brain reading helmet to determine how best to satisfy the user population. A third example, open circuit cameras in a wildlife reserve are also used to inform a decision support system on activities that will impact the environment. A fourth example, a content editing system synthesizes content and automatically generates internal and cross site links in Wikipedia
+
+Massive man can do more than behavioral coaching, however the massive man itself is simply an infrastructure for intelligence but no particular motivation. I love you adds the motivation to be benevolent. With the massive man repository, it should be very easy to set up one of the examples above if the databases / knowledge bases / data providers are already established. To facilitate this further, I should ensure that the Data providers I give first party support to make it very very easy to set up and get started. Massive man may even have a GUI editor like the custom limboid designer.
+
+There is so much data that I would like to aggregate, analyze, and explicitly or autonomously act upon: physiological data, psychological data, intellectual data, social data, natural data, structured data, business data, creative data, scientific data, engineering data, robotic data. A lot of data can easily be represented in simple, directed, labeled knowledge graphs. However, there are applications where people employ more complex structures like hyper graphs, multi-layer networks, n-ary relational structures (like an SQL database). Obviously, this can all be implemented separately, but it is also convenient if there is a unified superset of them all. Actually, relationships between separate knowledge bases are simply binary or ternary rows in an SQL table.
+
+I should look up what noSQL offers that SQL really needs for this project to determine which one I should use. The advantage of SQL is that there are already scalable cloud services like air table that support the authentication I want.
+
+### Unification
+
+- Entity graphs are a special case of n-ary data but it can be observed and controlled with an optimized architecture
+- There are separate tables for nodes, outgoing relations, and incoming relations ?
+
+### Unification
+
+- Data in the backend may be stored in graph format (Python runtime, KB’s, HTML, etc) or relational format (SQL DB)
+- Data may be attended to as if it were in graph format or in relational format
+    - A relational table is a set of n-ary dictionaries with the column names as keys and the fields as values
+    - A directed hypergraph is a database with a table for nodes and a table for connections (eg, (src, rel, dst) where the dst can be a node or a connection)
+- Data representation may affect neural network processing efficiency and database processing efficiency. The TensorCode Python runtime where data sources are queries ultimately supports both simultaneously.
+
+### MAN & Agents
+
+Agents in the multi-agent network are intelligent microservices that communicate with or without central coordination. They follow the principle: don't call us, we'll call you. In other words, if there is a coordinator, it should be the agent that handles the coordinating - thus, minimizing computation spent by ordinary agents. The regular agents can even be containerized microservices on a cloud provider or on multiple cloud providers. The advantage of containerization is that individual instances can be spent up quickly but also last a long time. It should all integrate with web hooks for communication.
+
+The multi-agent network should integrate with IoT, home automation, industrial IoT, medical IoT, automobile networks, peer-to-peer networks, as well as the other data sources previously mentioned. Every limboid will probably be an IoT device.
+
+The block specification format allows interchangeable, cross application data reading and writing. Besides that use though, it may be useful for allowing massive multi-agent networks to interact - as well as allowing developers to hook up their own APIs and humans to observe the internal data and make observational, predictive, or even speculative reactions to it. Cross server connections may be pre-established by design, such as a massive multi-agent network, they mean be offered publicly up to a usage limit, and they may be available as a service where currency or request tokens are spent or the calling service offers request tokens to the agent. Pricing may be global, user specific, or interaction specific, relatively constant or dynamic, may incorporate compute market trends, may be pre-established or negotiated, may allow repayment plans, may be paid using currency, request tokens or request tokens from the other agents. In general, there needs to be a function that receives information about the state of the market, history of the system, user, what is being offered, what is being requested, and how much the request is predicted to consume and then make a decision to accept or reject, and the above our special cases.
+
+### Block Protocol Integrations
+
+The block protocol is defining an interchangeable data format for the internet. I can adopt it in the following ways:
+
+- make a modality block type
+- make an MAN Agent block type
+- be able to parse graphs in the form of block data
+- allow the Massive MAN KB be readable/writable using this protocol
+- If the blocks can access functions or execute their own code, then an agent can be contained entirely inside of a block and a MAN is simply another block that hosts agent blocks and gives them computation.
+
+### Intelligence economy
+
+Making a capitalistic system accelerates development. These are some goods and services that may be exchanged
+
+- Agents receive, negotiate, and compete for computation time and memory from the MAN
+- Agent interactions just like other API interactions cost money or credits and they may also operate in exchange for credits for other services such as the calling agent
+- Maybe there is a way for there to be an economy of credits passing between agents. The goal is to maximize throughput
+- Rather than define agent specific tokens, The agents can accept any number of developer specified transaction tokens such as money, Bitcoin, etc. This promotes more cooperation than simple bartering
+- Very intelligent agents are used very often and therefore have a lot of power to act over the network
+- Agents pay their compute provider to exist. They may require a loan before they are able to pay their own compute or they may be offered as a subscription service
+- Agents pay for their compute by charging for API calls
+- I don't know how serverless identity management is handled, but the agents should exploit the identity of the calling user to maximize profit. First of all, the minimum service price is private, but second, even if a 
+I also imagine that the MMANs’ economic integration will accelerate the degree to which they are viewed as individuals.
+
+## Journaling
+
+I think Google docs offers the best compromise in terms of usability, portability, flexibility, and sharing. Here's how I plan to use it
+
+- Make a doc for every month and write custom docs for random notes, to-do lists, and projects.
+- Use level 1 heading for each day
+- Use level 2 headings for each topic
+- Sometimes repeat a level 2+ heading if I want to start over
+- Try not to delete
+- Use the search feature to find items
+- Keep my Android charged and with me for docs dictation
+- Find app to read docs on Android
+- Write a review on docs, history, and activities every week in the monthly doc.
+- subtopics within a day do not need to be organized, but if the same idea is discussed over multiple days, it should reappear as separate subtopic threads one for each day
+- If a subtopic gets important, I’ll just copy it into a new document, link to it in the journal, and leave the stale content there.
+
+## TODO
+
+- Buy USB power expander
+- Connect USB extension on monitor to laptop and plug keyboard and webcam into the monitor to leave the laptop ports open
+- Call welding gas suppliers tomorrow
+- ~~Start an online book “Making Artificial Intelligence More Intelligent” on my artificial ecosystem plans and limboid plans to motivate people to join (make sure it can be put in a headless CMS, so maybe use a markdown editor). Publish it to vixra, arxiv, personal site, special site just for this purpose, and github.~~
+- ~~Tell Dr Parks it will be possible, and that we do not need to meet this Friday~~
+
+# Saturday April 30th
+
+Similar to the mother of all demos in 1968, I would like to make a dramatic introduction of artificial general intelligence to society. Computatra will be released on the internet, the limboid will be released into public spaces, limboid festivals will be held, a limboid will be launched into outer space. A 24-hour continuous video stream will be broadcast on several streaming platforms, such as, YouTube, twitch, and decentralized platforms. The massive man will be available for questions and actively posting on several social media platforms in real time during the event. This event will be advertised in several free ways: archive paper, GitHub, discord, social media
+
+Rename the artificial ecosystem to the fertile crescent. Now this container repository serves a very useful and distinct purpose: containing the code that corresponds to the fertile crescent book. Also, rename the limboid ecosystem to limboid LLC. This repository contains things that limboid LLC capitalizes on such as limboid, limboid factory services, limboid space program. It does not include every repository in the fertile crescent. Also, many of the limboid LLC resources are on third party sites like notion, open collective, discord, or the main limboid.ai website
+
+The book should be called A FERTILE CRESCENT for Artificial General Intelligence. It will present
+
+- A pragmatic philosophy to developing AGI: just do it, forget the theories and papers
+- Introduction to repositories in the fertile crescent container repository. Each chapter should have a header indicating the current development status of the repository: not started, under development, stable and the tag for the latest release if it exists. The chapter is not the same as the repository read me because the read me is intended for GitHub viewers while the chapter is for readers
+- A concluding chapter or epilogue that summarizes how artificial intelligence will continue to grow and how humans can and should embrace it
+
+Include several kinds of cellular automaton in the unsupervised repository.
+
+The man should include biological agents like Apple watch measurements and haptic response, hemoencephalogram measurements, and connections to line neuron cultures.
+
+# Sometime
+
+This is the stackedit book
+
+```
+
+Motivation
+
+philosophy
+
+theory
+
+overview
+
+Network-level stuff
+
+theories
+
+repos...
+
+Paradigms
+
+node tree
+
+tensorcode
+
+the artificial ecosystem
+
+the artificial
+
+unsupervised deep learning
+
+Systems
+
+MAN
+
+Massive MAN
+
+```
+
+Make a separate book for the limboid ecosystem my
+
+Actually, just string togethor related projects and maybe only have three parts: introduction, tangible, distant
+
+Emphasize that the idea is discussed in this book are realizable within a few months
+
+Make sure to include citations even though this is opinoinated
+
+You should be able to get started reading any chapter without having read the previous ones.
+
+My opinion on consciousness: it's a word we made up to describe the way that information reacts to itself whether it's included in neuronal activations, presynaptic potentiations or depressions, or other structural elements of the way that information reacts. We have strong genetic priors to identify brain states that indicates pleasure or aversion and make it easier or more difficult to think, act, or plan with those representations. They qualitative experience of pleasure or pain is no different than any other qualitative experience. So, pain is just like a color or an emotion or a taste or some other thought but it's hard to be motivated when that representation is present. There are many other genetically informed representations in the brain, however the brain is flexible in forming and reacting to representations, and the extreme flexibility of the neocortex and free frontal cortex allows extremely open-handed learning to occur.
+
+I don't just want this to be a book of opinions. I want to have a scientific style proposition experiment or proof when making an objectionable or important statement. I also went to use the shorthand mathematical proof notation because it's cool, concise, and convenient, for example, multiply, add x, factor out 3 from the left side, substitute y equals cosine of x, y = y.
+
+The motivation of my discussion on consciousness is asking whether a machine can be conscious and how should it be treated. The proof is that they representation is simply a representation and the human brain has many genetic priors conditioning how it responds to specific representations. I can cite research on the distinction between somatosensory versus limbic representations of pain to prove this in humans. And then I can mathematically define qualitative states for an agent. Then I can use mathematical proof sequences to define higher constructs like empathy, love, evilness, etc. I should also propose a slew of experiments that validate or invalidate my theory. Some of these experiments should be anthropocentric to make it easier to empathize and qualitatively interpret the results Finally, I should conclude with the implications for how humans treat these systems and other ethical questions.
+
+[APRIL 17 — APRIL 23](https://www.notion.so/APRIL-17-APRIL-23-defd14bc2cac429082f6a3870c789476)
+
+---
+
+AI Message:
+Ego 1: The Motivated Visionary
+
+The Motivated Visionary is fueled by the desire to see artificial general intelligence (AGI) advance and become a more significant and useful part of society. This ego is marked by action and pragmatism, believing that the best way to develop AGI is to tackle it head-on and learn from each successive iteration. The Motivated Visionary envisions a world where AGI systems can be made to be incredibly flexible, capable of forming new connections and learning from their experiences. They are passionate about exploring and understanding how information reacts within AGI systems while also acknowledging the genetic priors that govern human behavior.
+
+Ego 2: The Tangible Innovator
+
+The Tangible Innovator thrives on developing practical and achievable technology solutions that focus on bringing AGI projects to life. This ego is all about making things happen, and they work tirelessly to ensure that cutting-edge AI systems are accessible to anyone who wants to use them. The Tangible Innovator isn't afraid to dive into the unknown, eager to uncover knowledge and push the boundaries of AGI development further. They are drawn to projects that will make a real and lasting impact on people's lives and are devoted to making AGI systems simple to understand, user-friendly, and adaptable.
+
+Ego 3: The Critical Ethicist
+
+The Critical Ethicist is driven by a strong need to understand the ethical implications and consequences of AGI systems. This ego delves deeply into questions of consciousness, morality, and the relationship between humans and AGI systems. The Critical Ethicist aims to develop a solid understanding of how AGI systems function and how they connect to human experiences, genetics, and neural processes. Guided by a strong sense of integrity, this ego is willing to challenge existing perceptions and explore the ethical boundaries of cutting-edge AGI systems. They are committed to ensuring that AGI development aligns with a framework that benefits humanity and understands the inherent responsibilities that come with creating AGI systems.

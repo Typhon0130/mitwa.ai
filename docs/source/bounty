@@ -1,0 +1,35 @@
+A personal growth tool designed to enhance self-awareness and empower decision-making using GPT-4 and a beautifully designed chat interface in React.
+Initially created as a tool for the founder, with potential for broader application.
+
+Backend Technology: GPT-4 (OpenAI) + NodeJS
+Frontend Technology: React + TailwindUI
+Prefer the use of NextJS
+For database, use Postgres hosted on Digital Ocean. Set up Prisma on top of Postgres for handling database queries.
+Features:
+
+User Authentication:
+Enable secure sign-up and login for the user.
+Implement password recovery functionality.
+Chat Interface:
+Create a clean, modern, and responsive chat interface using React.
+Allow users to input text and display responses from the GPT-4 model.
+Implement a chat history feature to store and display previous interactions.
+Ego Model Creation:
+Integrate GPT-4 to analyze user input and build digital “egos” that reflect the user’s unique personality.
+Allow users to create a new “ego” by providing a description of it.
+Enable users to view and interact with their ego models.
+Contextual Playground:
+Integrate GPT-4 with the “egos” to create a chat experience that helps the user think through their problems and receive counseling.
+Allow users to navigate personal scenarios and receive insights and guidance from the platform.
+Enable different “ego” prompts to interact with each other, debating a general problem from their respective perspectives.
+Deliverables:
+
+A complete backend system integrated with GPT-4 that supports the features outlined above.
+A frontend chat interface built with React that is visually appealing and intuitive to use.
+Documentation outlining the system architecture, API endpoints, and any relevant technical details.
+An installation guide for setting up the application on a server or a hosting service.
+The homepage of the product should directly spawn the chat interface. For the chat interface, take inspiration from Formless for creating interactions.
+
+The primary skillset that makes someone a good fit for building this is an understanding of designing human-like chat prompts in GPT-4. Most chatbots feel robotic, use Pi as a reference. The chat responses from this product should feel like you’re talking to a friend.
+
+The final product should allow users to create and interact with multiple “egos,” each with its unique GPT prompt. These “egos” will analyze and debate general problems from their own perspectives, providing a rich and diverse chat experience that supports personal growth and decision-making.
